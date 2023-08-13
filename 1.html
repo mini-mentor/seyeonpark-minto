@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로그인</title>
+  <style>
+    body {
+      font-family: "Pretendard", sans-serif;
+      justify-self: center;
+      display: flex;
+    }
+
+    .header {
+      width: 309px;
+      height: 68px;
+      top: 74px;
+      left: 32px;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 30px;
+      color: black;
+      padding: 20px 0;
+      text-align: left;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 120px auto 0;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      padding: 0 10px;
+      
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .long-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    .input2-group {
+      display: flex;
+    }
+
+    .input2-group input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .auth-btn {
+      flex: 0 0 100px;
+      margin-left: 30px;
+      padding: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #2D3243;
+      background-color: #FAFAFB;
+
+    }
+
+    .auth-btn:hover {
+      text-decoration: underline;
+    }
+
+    .gender-group {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .gender-option {
+      flex-basis: 48%;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .gender-option:hover {
+      background-color: #f0f0f0;
+    }
+
+    .gender-select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      appearance: none;
+      background-color: white;
+    }
+
+    .next-btn {
+      position: relative;
+      width: 315px;
+      height: 54px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      top: 200px;
+      background-color: #00D2BD;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
+
+    @media screen and (max-width: 390px) {
+      body {
+        font-size: 14px;
+      }
+
+      .input-group input,
+      .long-input {
+        padding: 12px;
+        font-size: 14px;
+      }
+
+      .auth-btn {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="container">
+    <div class="header">
+      문자인증 1번만 하면<br>
+      가입이 완료돼요!
+    </div>
+    <div class="input-group">
+      <input type="text" id="input1" placeholder="이름을 입력하세요" class="long-input">
+    </div>
+    <div class="input-group">
+      <div class="input2-group">
+        <input type="text" id="input2" placeholder="전화번호를 입력하세요">
+        <button class="auth-btn">인증받기</button>
+      </div>
+    </div>
+    <div class="input-group">
+      <input type="text" id="input3" placeholder="인증번호를 입력하세요." class="long-input">
+    </div>
+    <div class="gender-group">
+      <div class="gender-option">여자</div>
+      <div class="gender-option">남자</div>
+    </div>
+    <button class="next-btn">다음</button>
+  </div>
+</body>
+</html>

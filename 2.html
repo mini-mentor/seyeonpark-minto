@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #main-image {
+            max-width: 100%;
+            height: 296px;
+            font-weight: 32395px;
+            border-radius: 20px; 
+            background-color: #00D2BD;
+            margin-top:100px; 
+        }
+        #main-text {
+            left: 32px;
+            text-align: left;
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 30px; 
+        }
+        #sub-text {
+            left: 32px;
+            text-align: left;
+            font-size: 18px;
+            color: #515151;
+            margin-top: 20px;
+        }
+
+    
+        @media screen and (min-width: 360px) { 
+            #main-text {
+                font-size: 25px; 
+                margin-top: 70px; 
+            }
+            #sub-text {
+                font-size: 20px;
+                margin-top: 30px; 
+            }
+            #main-image {
+                margin-top: 50px; 
+            }
+        }
+
+    
+        #second-image {
+            position: absolute;
+            top: 698px; 
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="main-image" src="1.png" alt="Main Image">
+    <p id="main-text">현업 개발자 선배들의<br> 실무 중심 개발 멘토링, 미니멘토</p>
+    <p id="sub-text">가입하면 멘토링 신청, 결과 확인 등의<br>
+       여러 기능을 이용할 수 있어요!</p>
+    <img id="second-image" src="2.png" alt="Second Image" onclick="moveKakaoLogin()">
+    <!-- 카카오 SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src=" https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}"></script>
+    <script>
+        const REST_API_KEY = "d2b7a4c136d454a2bc445aa50f1337c0";
+        const kakaoLoginUrl = "https://kauth.kakao.com/oauth/authorize";
+        const kakaoTokenApiUrl = "https://kauth.kakao.com/oauth/token";
+        const redirectUrl = "http://localhost:3000";
+
+        // 1. 카카오 로그인 창으로 이동
+        function moveKakaoLogin() {
+            location.href = `${kakaoLoginUrl}?client_id=${REST_API_KEY}&redirect_uri=${redirectUrl}&response_type=code`;
+        }
+        function moveKakaoLogin() {
+    location.href = `${kakaoLoginUrl}?client_id=${REST_API_KEY}&redirect_uri=${redirectUrl}&response_type=code`;
+}
+      // 3-3. redirect_url로 이동한 후 url 뒤에 code 값 붙어옴 
+        function getTokenFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('code');
+        }
+
+        async function fetchKakaoToken() {
+        const code = getTokenFromURL();
+        if (code) {
+        try {
+        // code 값이 있으면 토큰을 가져옴
+        const token = await getKakaoToken(code);
+        console.log("카카오톡 토큰:", token);
+        } catch (error) {
+        console.error("토큰 요청 실패:", error);
+        }
+            }
+}
+
+        fetchKakaoToken();
+
+
+
+// 3-4. 이동된 redirect_url 에서 전달받은 코드 값을 파라미터로 카카오 토큰 요청 API 호출
+function getKakaoToken(code) {
+		let token = "";
+    let data = {
+        "grant_type": "authorization_code",
+        "client_id": REST_API_KEY,
+        "redirect_uri": redirectUrl,
+        "code": code,
+    };
+
+    $.ajax(kakaoTokenApiUrl, {
+        data: data,
+        dataType: "json",
+        method: "POST",
+        async: false,
+        success: function (resultData) {
+           token = resultData.access_token;
+        }
+    });
+
+		return token;
+}
+
+
+    </script>
+</body>
+</html>

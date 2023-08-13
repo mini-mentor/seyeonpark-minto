@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인화면</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #F2F2F2DB;
+;
+
+      height: 48px;
+      width: 319px;
+      border-radius: 20px;
+      position: absolute;
+      top: 74px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 5px 10px;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      width: 320px;
+      height: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      position: absolute;
+      top: 350px; 
+      left: 20px;
+      z-index: 1;
+    }
+
+    .rounded-box {
+      width: 320px;
+      height: 144px;
+      background: #D9D9D9;
+      top: 420px;
+      left: 20px;
+      border-radius: 20px;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .sub-section-title {
+      width: 320px;
+      height: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000000;
+      position: absolute;
+      top: 580px;
+      left: 20px;
+      z-index: 1;
+    }
+
+    .second-rounded-box {
+      width: 320px;
+      height: 144px;
+      background: #D9D9D9;
+      border-radius: 20px;
+      position: absolute;
+      top: 650px; 
+      left: 50%;
+      transform: translateX(-50%);
+      overflow-y: scroll; 
+      z-index: 1; 
+    }
+
+    .white-rectangle {
+      width: 400px;
+      height: 82px;
+      bottom: 0;
+      left: 0;
+      background: white; 
+      position: fixed;
+      z-index: 1;
+    }
+
+    .photo-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+      margin-left: 13px;
+      width: 300px;
+      height: 23px; 
+      position: fixed; 
+      bottom: 20px; 
+      left: 20px;
+      z-index: 1; 
+    }
+
+    .photo {
+      width: 23px;
+      height: 23px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      width: 320px;
+      position: absolute;
+      top: 770px;
+      left: 20px;
+      z-index: 1; 
+    }
+
+    .nav-links p {
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 15px;
+      letter-spacing: 0px;
+      text-align: center;
+    }
+    
+    .bottom-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .photo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo-item p {
+      margin-top: 5px;
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 15px;
+      letter-spacing: 0px;
+      text-align: center;
+    }
+    
+    
+    .top-left-shape {
+      width: 154px;
+      height: 191px;
+      background: #00D2BD;
+      top: 140px;
+      left: 20px;
+      position: absolute;
+      border-radius: 20px;
+      display: flex;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 22px;
+      z-index: 1;
+    }
+
+    .top-left-shape span {
+    font-family: 'Pretendard',sans-serif;
+    position: relative;
+    font-weight: bold;
+    left: 10px; 
+    top: 20px;
+    }
+
+    .top-right-shape {
+      width: 154px;
+      height: 191px;
+      background: #FCB809;
+      top: 140px; 
+      left: 186px;
+      position: absolute;
+      border-radius: 20px;
+      display: flex;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 22px;
+      
+    }
+
+    .top-right-shape span {
+    font-family: 'Pretendard',sans-serif;
+    position: relative;
+    font-weight: bold;
+    left: 20px; 
+    top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="search-bar">
+      <div class="search-text">
+        <input type="text" placeholder="무엇이 필요하시나요">
+        <img src="Group.svg" alt="이미지">
+      </div>
+    </div>
+    <div class="top-left-shape">
+      <span>멘티로<br>지원하기</span>
+      <img src="파란색.svg" alt="파란색 이미지" width="134px" height="138px" style="position: absolute; top: 70px; left: 32px;">
+    </div>
+
+    <div class="top-right-shape">
+      <span>멘토로<br>지원하기</span>
+      <img src="노란색.svg" alt="노란색 이미지" width="137px" height="129px" style="position: absolute; top: 85px; left: 42px;">
+    </div>
+    <div class="section-title">
+      <h2>멘토님들 소개</h2>
+    </div>
+    <div class="rounded-box">
+      <p style="color: #00D2BD">구지원 멘토님 - 프론트엔드개발자</p>
+      <p style="color: #00D2BD">김두리 멘토님 - 백엔드개발자</p>
+      <p style="color: #00D2BD">김수현 멘토님 - 안드로이드개발자</p>
+      <p style="color: #00D2BD">신선영 멘토님 - 백엔드개발자</p>
+    </div>
+    <div class="sub-section-title">
+      <h2>1기 멘티 소개</h2>
+    </div>
+    <div class="second-rounded-box">
+      <p style="color: #FCB809">황혜경 멘티 - 프론트엔드개발자</p>
+      <p style="color: #FCB809">김수연 멘티 - 프론트엔드개발자</p>
+      <p style="color: #FCB809">최헤민 멘티 - 프론트엔드개발자</p>
+      <p style="color: #FCB809">김하은 멘티 - 프론트엔드개발자</p>
+      <p style="color: #FCB809">박세연 멘티 - 백엔드개발자</p>
+      <p style="color: #FCB809">노하은 멘티 - 백엔드개발자</p>
+      <p style="color: #FCB809">김혜승 멘티 - 백엔드개발자</p>
+      <p style="color: #FCB809">나소정 멘티 - 백엔드개발자</p>
+    </div>
+
+    <div class="bottom-section">
+      <div class="white-rectangle"></div>
+      <div class="photo-container">
+        <div class="photo-item">
+          <img class="photo" src="home 1.svg" alt="Photo 1">
+          <p>홈</p>
+        </div>
+        <div class="photo-item">
+          <img class="photo" src="달력.svg" alt="Photo 2">
+          <p>일정</p>
+        </div>
+        <div class="photo-item">
+          <img class="photo" src="파일.svg" alt="Photo 3">
+          <p>히스토리</p>
+        </div>
+        <div class="photo-item">
+          <img class="photo" src="person 1.svg" alt="Photo 4">
+          <p>마이페이지</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
